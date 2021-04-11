@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projeto</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="fundo-branco">
+            <div class="alinhamento">
+                <h1>Jogador</h1>
+                <div class="progresso">
+                    <div class="progresso2" :style="[progressoJogador]"></div>
+                </div>
+                <span>{{vidaJogador}}%</span>
+            </div>
+            <div class="alinhamento">
+                <h1>Monstro</h1>
+                <div class="progresso">
+                    <div class="progresso2" :style="[progressoMonstro]"></div>
+                </div>
+                <span>{{vidaMonstro}}%</span>
+            </div>
+        </div>
+        <div v-if="resultado && !desistir" class="fundo-branco">
+            <div class="" style="padding: 30px 0px;">
+                <button @click="ataque()" style="background-color: red; color: white;">ATAQUE</button>
+                <button @click="ataqueEspecial()" style="background-color: orange;">ATAQUE ESPECIAL</button>
+                <button @click="curar()" style="background-color: green; color: white;">CURAR</button>
+                <button @click="desistencia()" style="background-color: lightgray;">DESISTIR</button>
+            </div>
+        </div>
+        <div v-else-if="!resultado || !desistir" class="fundo-branco">
+            <div class="">
+                <h2 :style="{color: cor}">{{vitoria}}</p>
+            </div>
+        </div>
+        <div v-show="!resultado || desistir" class="fundo-branco">
+            <div class="" style="padding: 30px 0px;">
+                <button @click="iniciarJogo()" style="background-color: blue; color: white;">INICIAR NOVO JOGO</button>
+            </div>
+        </div>
+        <div v-for="value in log" class="fundo-branco" style="flex-direction: column; margin-bottom: 10px;">
+            <div v-for="" class="logJogo" :style="{backgroundColor: value.cor}">{{value.texto}}</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
